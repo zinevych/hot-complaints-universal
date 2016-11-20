@@ -3,11 +3,9 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import configureStore from '../common/store/configureStore'
-import App from '../common/containers/App'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
-import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Routes from '../common/containers/Routes.jsx'
 
 
 const preloadedState = window.__PRELOADED_STATE__
@@ -16,9 +14,7 @@ const rootElement = document.getElementById('app')
 
 render(
   <Provider store={store}>
-    <MuiThemeProvider>
-      <App/>
-    </MuiThemeProvider>
+    {Routes(navigator.userAgent, true)}
   </Provider>,
   rootElement
 )

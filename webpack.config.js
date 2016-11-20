@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
+let extractCSS = new ExtractTextPlugin('stylesheets/[name].css')
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -14,16 +16,18 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin("styles.css"),
+    extractCSS
   ],
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel',
         exclude: /node_modules/,
         include: __dirname
       }
     ]
   }
-}
+};

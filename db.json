@@ -1,0 +1,24 @@
+{
+  "reports": [
+    {
+      "id": 1,
+      "title": "Погана розмітка на вул. Володимира Великого",
+      "author": {
+        "firstName": "Іван",
+        "secondName": "Сидоренко"
+      },
+      "text": "На вулиці володимира великого погана розмітка, через це відбувається багато аварій",
+      "avatar": "https://api.adorable.io/avatars/285/abott1@adorable.io.png"
+    },
+    {
+      "id": 2,
+      "title": "Погана розмітка на вул. Володимира Великого",
+      "author": {
+        "firstName": "Іван",
+        "secondName": "Сидоренко"
+      },
+      "avatar": "https://api.adorable.io/avatars/285/abott2@adorable.io.png",
+      "text": "На вулиці володимира великого погана розмітка, через це відбувається багато аварій"
+    }
+  ]
+}

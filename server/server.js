@@ -3,24 +3,19 @@
 import path from 'path'
 import Express from 'express'
 import qs from 'qs'
-
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from '../webpack.config'
-
-console.log('1111', webpackConfig);
-
 import React from 'react'
 import {renderToString} from 'react-dom/server'
 import {Provider} from 'react-redux'
-
 import configureStore from '../common/store/configureStore'
 import Routes from '../common/containers/Routes'
 import { RouterContext, match } from 'react-router';
 
-const app = new Express()
-const port = 3000
+const app = new Express();
+const port = 3000;
 
 
 
@@ -29,8 +24,10 @@ const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: webpackConfig.output.publicPath}))
 app.use(webpackHotMiddleware(compiler))
 
+require('../api/index')(app);
+
 // This is fired every time the server side receives a request
-app.use(handleRender)
+app.use(handleRender);
 
 function handleRender(req, res) {
   return match({ routes: Routes(req.headers['user-agent']), location: req.url }, (error, redirectLocation, renderProps) => {
@@ -71,6 +68,7 @@ function renderFullPage(html, preloadedState) {
     <html>
       <head>
         <title>Redux Universal Example</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       </head>
       <body>
         <div id="app">${html}</div>

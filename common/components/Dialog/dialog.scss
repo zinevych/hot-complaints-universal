@@ -1,0 +1,10 @@
+.add-complaint-form {
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    form {
+      width: 300px;
+    }
+  }
+}

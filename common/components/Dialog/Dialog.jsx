@@ -1,13 +1,19 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import FormComponent from '../Form/Form.jsx';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import * as AppActions from '../../actions/appActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import './dialog.scss'
+
 export class DialogComponent extends React.Component {
+  submitForm() {
+    console.log('asasas')
+  }
+
   render() {
     const actions = [
       <FlatButton
@@ -37,20 +43,17 @@ export class DialogComponent extends React.Component {
     console.log(this.props.appActions.toggleDialog)
 
     return (
-      <div>
-        <Dialog
-          title="Додайте свою скаргу"
-          actions={actions}
-          modal={false}
-          open={this.props.app.dialogOpen}
-          onRequestClose={this.props.appActions.toggleDialog}
-          autoScrollBodyContent={true}
-        >
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
-            {radios}
-          </RadioButtonGroup>
-        </Dialog>
-      </div>
+      <Dialog
+        title="Додайте свою скаргу"
+        modal={false}
+        open={this.props.app.dialogOpen}
+        onRequestClose={this.props.appActions.toggleDialog}
+        autoScrollBodyContent={true}
+      >
+        <div className="add-complaint-form__container">
+          <FormComponent {...this.props} onSubmit={this.props.appActions.toggleDialog}/>
+        </div>
+      </Dialog>
     );
   }
 }

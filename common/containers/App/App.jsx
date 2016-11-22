@@ -13,10 +13,6 @@ import './app.scss';
 
 export class App extends React.Component {  
   render() {
-    const style = {
-      marginRight: 20
-    };
-    
     console.log(this.props.children)
 
     return (<div className="hot-problems__main">
@@ -26,8 +22,9 @@ export class App extends React.Component {
       <div className="hot-problems__main-container">
         <CardsContainer {...this.props}/>
       </div>
+
       
-      <FloatingActionButton style={style} onClick={this.props.appActions.toggleDialog}>
+      <FloatingActionButton className="floating-button" onClick={this.props.appActions.toggleDialog}>
         <ContentAdd />
       </FloatingActionButton>
       

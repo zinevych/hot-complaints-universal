@@ -12,6 +12,8 @@ import * as AppActions from '../../actions/appActions'
 import './app.scss';
 
 export class App extends React.Component {  
+  componentDidMount() {}
+  
   render() {
     console.log(this.props.children)
 

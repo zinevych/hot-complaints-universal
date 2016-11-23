@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "An example of a universally-rendered Redux application",
   "scripts": {
+    "test": "mocha \"common/**/*.js\" --require ignore-styles --require jsdom-global/register --compilers js:babel-core/register",
     "start": "node server/index.js",
     "start-dev": "node server/dev-server.js"
   },
@@ -19,6 +20,7 @@
     "babel-polyfill": "^6.3.14",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.4.3",
+    "chai": "^3.5.0",
     "css-loader": "^0.26.0",
     "enzyme": "^2.6.0",
     "express": "^4.13.3",
@@ -27,11 +29,14 @@
     "html-webpack-plugin": "^2.24.1",
     "ignore-styles": "^5.0.1",
     "isomorphic-style-loader": "^1.1.0",
+    "jsdom": "^9.8.3",
+    "jsdom-global": "^2.1.0",
     "material-ui": "^0.16.2",
     "mocha": "^3.1.2",
     "node-sass": "^3.13.0",
     "qs": "^4.0.0",
     "react": "^15.4.0",
+    "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^4.2.1",
@@ -43,6 +48,7 @@
     "request": "^2.79.0",
     "sass-loader": "^4.0.2",
     "serve-static": "^1.10.0",
+    "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
     "superagent": "^3.0.0",
     "webpack-dev-server": "^1.16.2"

@@ -1,6 +1,8 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import * as AppActions from '../../actions/appActions'
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -10,7 +12,6 @@ export class AppBarComponent extends React.Component {
       <AppBar
         title="Title"
         iconClassNameRight="muidocs-icon-navigation-expand-more"
-        onLeftIconButtonTouchTap={this.props.appActions.toggleDrawer}
       />
     )
   }

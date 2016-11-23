@@ -17,6 +17,7 @@
   },
   "homepage": "http://redux.js.org",
   "dependencies": {
+    "babel-core": "^6.18.2",
     "babel-polyfill": "^6.3.14",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.4.3",
@@ -31,7 +32,7 @@
     "isomorphic-style-loader": "^1.1.0",
     "jsdom": "^9.8.3",
     "jsdom-global": "^2.1.0",
-    "material-ui": "^0.16.2",
+    "material-ui": "latest",
     "mocha": "^3.1.2",
     "node-sass": "^3.13.0",
     "qs": "^4.0.0",

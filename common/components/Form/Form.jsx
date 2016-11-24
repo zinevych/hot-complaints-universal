@@ -1,21 +1,39 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import * as AppActions from '../../actions/appActions'
 import FlatButton from 'material-ui/FlatButton';
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
 
-export class FormComponent extends React.Component {
+export default class FormComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      firstName: '',
+      lastName: '',
+      title: '',
+      email: '',
+      text: ''
+    }
+  }
+
   submitHandler = (e) => {
     e.preventDefault();
 
+    this.props.reportsActions.postReport(this.state);
     this.props.onSubmit();
+  }
+
+  handleChange = (event) => {
+      return this.setState({
+        [event.target.name]: event.target.value
+      })
   }
 
   render() {
     const validationMessages = {
       requiredText: 'Це поле обовязкове до заповнення.'
     }
+
+    console.log(this.state)
 
     return (
         <form onSubmit={this.submitHandler}>
@@ -25,6 +43,9 @@ export class FormComponent extends React.Component {
             multiLine={false}
             rows={1}
             fullWidth={true}
+            name="firstName"
+            onChange={this.handleChange}
+            value={this.state.firstName}
           />
           <TextField
             hintText="Петренко"
@@ -32,13 +53,19 @@ export class FormComponent extends React.Component {
             multiLine={false}
             rows={1}
             fullWidth={true}
+            name="lastName"
+            onChange={this.handleChange}
+            value={this.state.lastName}
           />
           <TextField
-            hintText="Працівник"
-            floatingLabelText="Посада"
+            hintText="Електронна пошта"
+            floatingLabelText="aaa@email.com"
             multiLine={false}
             rows={1}
             fullWidth={true}
+            name="email"
+            onChange={this.handleChange}
+            value={this.state.email}
           />
           <TextField
             hintText=""
@@ -47,6 +74,8 @@ export class FormComponent extends React.Component {
             rows={1}
             fullWidth={true}
             name="title"
+            onChange={this.handleChange}
+            value={this.state.title}
           />
           <TextField
             hintText=""
@@ -55,6 +84,8 @@ export class FormComponent extends React.Component {
             rows={3}
             fullWidth={true}
             name="text"
+            onChange={this.handleChange}
+            value={this.state.text}
           />
 
           <FlatButton
@@ -70,16 +101,4 @@ export class FormComponent extends React.Component {
         </form>
     )
   }
-}
-
-const mapStateToProps = (state) => ({
-  app: state.app
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    appActions: bindActionCreators(AppActions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FormComponent)
+};

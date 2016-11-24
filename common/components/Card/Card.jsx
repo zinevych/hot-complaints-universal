@@ -7,14 +7,14 @@ import { connect } from 'react-redux'
 
 export class CardComponent extends React.Component {
   render() {
-    const {author, title, text, avatar} = this.props;
+    const {user, title, text, avatar} = this.props;
     
     return (
       <Card>
         <CardHeader
-          title={`${author.firstName} ${author.secondName}`}
-          subtitle="Робітник"
-          avatar={avatar}
+          title={`${user.firstName} ${user.lastName}`}
+          subtitle={user.email}
+          avatar={user.avatar}
         />
         <CardTitle title={title} subtitle="Card subtitle" />
         <CardText>

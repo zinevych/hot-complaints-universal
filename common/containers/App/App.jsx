@@ -8,6 +8,7 @@ import CardsContainer from './../CardsContainer/CardsContainer.jsx'
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from '../../../node_modules/material-ui/svg-icons/content/add';
 import * as AppActions from '../../actions/appActions'
+import * as ReportsActions from '../../actions/reportsActions'
 
 import './app.scss';
 
@@ -15,7 +16,6 @@ export class App extends React.Component {
   componentDidMount() {}
   
   render() {
-    console.log(this.props.children)
 
     return (<div className="hot-problems__main">
       <AppBarComponent {...this.props}/>
@@ -41,7 +41,8 @@ const mapStateToProps = (state) => ({
 
 function mapDispatchToProps(dispatch) {
   return {
-    appActions: bindActionCreators(AppActions, dispatch)
+    appActions: bindActionCreators(AppActions, dispatch),
+    reportsActions: bindActionCreators(ReportsActions, dispatch)
   }
 }
 

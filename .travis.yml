@@ -5,3 +5,4 @@ node_js:
 
 before_script:
   npm i yarn@0.16.1
+  yarn install

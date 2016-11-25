@@ -20,13 +20,13 @@ export const postReport = (payload) => {
         return result[0];
       }
       else {
-        const randomizer = Math.random() * (1000 - 1) + 1;
+        const randomizer = Math.floor((Math.random() * 1000) + 100);
 
         return post('/api/users', {
           firstName: payload.firstName,
           lastName: payload.lastName,
           email: payload.email,
-          avatar: `https://api.adorable.io/avatars/${randomizer}/abott2@adorable.io.png`
+          avatar: `https://api.adorable.io/avatars/100/abott${randomizer}@adorable.io.png`
         });
       }
     }).then((userObj) => {
@@ -41,6 +41,6 @@ export const postReport = (payload) => {
         });
       })
     })
-    
+
   }
-}
+};

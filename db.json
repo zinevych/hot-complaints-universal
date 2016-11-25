@@ -5,6 +5,18 @@
       "text": "Траса на тернопіль у жахливому стані!!!!!!!",
       "userId": 1,
       "id": 1
+    },
+    {
+      "title": "відсутнє опалення",
+      "text": "відсутнє опалення",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "title": "2323",
+      "text": "234234234",
+      "userId": 2,
+      "id": 3
     }
   ],
   "users": [
@@ -12,8 +24,15 @@
       "firstName": "Петро",
       "lastName": "Іваненко",
       "email": "peter123@gmail.com",
-      "avatar": "https://api.adorable.io/avatars/55.807412688656/abott2@adorable.io.png",
+      "avatar": "https://api.adorable.io/avatars/100/abott1@adorable.io.png",
       "id": 1
+    },
+    {
+      "firstName": "122131",
+      "lastName": "123123",
+      "email": "123@gmail.com",
+      "avatar": "https://api.adorable.io/avatars/100/abott2@adorable.io.png",
+      "id": 2
     }
   ]
 }

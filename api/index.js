@@ -8,7 +8,6 @@ module.exports = function(app) {
   }
 
   app.get('/api/reports?*', function(req, res) {
-    console.log(req.query);
     req.pipe(request({
       url: urls.reports,
       qs: req.query
@@ -22,9 +21,10 @@ module.exports = function(app) {
   });  
   
   app.get('/api/users?*', function(req, res) {
-    req.pipe(
-      request(urls.users)
-    ).pipe(res);
+    req.pipe(request({
+      url: urls.users,
+      qs: req.query
+    })).pipe(res);
   });
   
   app.post('/api/users', function(req, res) {

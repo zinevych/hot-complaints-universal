@@ -1,6 +1,7 @@
-import {get, post} from '../helpers/rest'
+import {get, post, put} from '../helpers/rest'
 export const GET_REPORTS = 'GET_REPORTS';
 export const REPORT_POST = 'REPORT_POST';
+export const REPORT_LIKE = 'REPORT_LIKE';
 
 export const getReports = () => {
   return dispatch => {
@@ -11,7 +12,23 @@ export const getReports = () => {
       });
     });
   };
-}
+};
+
+export const like = (payload) => {
+  return dispatch => {
+    return put(`/api/reports/${payload.id}`, {
+      likes: (payload.likes || 0) + 1,
+      title: payload.title,
+      text: payload.text,
+      userId: payload.userId
+    }).then((result) => {
+      dispatch({
+        type: REPORT_LIKE,
+        data: result
+      });
+    })
+  }
+};
 
 export const postReport = (payload) => {
   return dispatch => {
@@ -41,6 +58,5 @@ export const postReport = (payload) => {
         });
       })
     })
-
   }
 };

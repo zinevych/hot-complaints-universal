@@ -1,11 +1,8 @@
 import React from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as ReportsActions from '../../actions/reportsActions'
 import CardComponent from '../../components/Card/Card.jsx'
 import './cards-container.scss';
 
-export class CardsContainer extends React.Component {
+export default class CardsContainer extends React.Component {
   componentDidMount() {
     this.props.reportsActions.getReports();
   }
@@ -20,19 +17,7 @@ export class CardsContainer extends React.Component {
   
   buildCardsList(list) {
     return list.map((item) => {
-        return <CardComponent {...item}></CardComponent>
+        return <CardComponent item={item} {...this.props} />
     });
   }
 }
-
-const mapStateToProps = (state) => ({
-  reports: state.reports
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    reportsActions: bindActionCreators(ReportsActions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardsContainer)

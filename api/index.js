@@ -20,6 +20,12 @@ module.exports = function(app) {
     ).pipe(res);
   });  
   
+  app.put('/api/reports/:id', function(req, res) {
+    req.pipe(
+      request(urls.reports + `/${req.params.id}`)
+    ).pipe(res);
+  });  
+  
   app.get('/api/users?*', function(req, res) {
     req.pipe(request({
       url: urls.users,

@@ -20,3 +20,15 @@ export function post(url, body) {
       });
   })
 }
+
+export function put(url, body) {
+  return new Promise(function (resolve, reject) {
+    request.put(url)
+      .send(body)
+      .set('Content-Type', 'application/json')
+      .end(function (err, res) {
+        if (err) reject();
+        resolve(res.body);
+      });
+  })
+}

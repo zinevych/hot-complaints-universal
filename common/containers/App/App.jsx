@@ -36,7 +36,8 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  app: state.app,
+  reports: state.reports
 });
 
 function mapDispatchToProps(dispatch) {

@@ -1,13 +1,15 @@
 import React from 'react';
 import * as AppActions from '../../actions/appActions'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import IconButton from 'material-ui/IconButton';
+import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import LikeComponent from '../Like/Like.jsx';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 export class CardComponent extends React.Component {
   render() {
-    const {user, title, text, avatar} = this.props;
+    console.log(this.props);
+
+    const {user, title, text} = this.props.item;
     
     return (
       <Card>
@@ -16,12 +18,12 @@ export class CardComponent extends React.Component {
           subtitle={user.email}
           avatar={user.avatar}
         />
-        <CardTitle title={title} subtitle="Card subtitle" />
+        <CardTitle title={title} />
         <CardText>
           {text}
         </CardText>
         <CardActions>
-          <IconButton iconClassName="material-icons" >plus_one</IconButton>
+          <LikeComponent item={this.props.item} {...this.props} />
         </CardActions>
       </Card>
     )

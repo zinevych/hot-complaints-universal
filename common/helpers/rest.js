@@ -2,10 +2,11 @@ import request from 'superagent';
 
 export function get(url) {
   return new Promise(function (resolve, reject) {
-    request.get(url).type('json').end(function (err, res) {
-      if (err) reject()
-      resolve(res.body);
-    });
+    request.get(url).type('json')
+      .end(function (err, res) {
+        if (err) reject();
+        resolve(res.body);
+      });
   });
 }
 
@@ -14,6 +15,20 @@ export function post(url, body) {
     request.post(url)
       .send(body)
       .set('Content-Type', 'application/json')
+      .end(function (err, res) {
+        if (err) reject();
+        resolve(res.body);
+      });
+  })
+}
+
+export function postWithFile(url, body, file) {
+  return new Promise(function (resolve, reject) {
+    request.post(url)
+      .field('title', body.title)
+      .field('text', body.text)
+      .field('userId', body.userId)
+      .attach('image', file)
       .end(function (err, res) {
         if (err) reject();
         resolve(res.body);

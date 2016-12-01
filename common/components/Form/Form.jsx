@@ -1,6 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import FileAttachment from 'material-ui/svg-icons/file/attachment';
 
 export default class FormComponent extends React.Component {
   constructor(props) {
@@ -11,7 +14,9 @@ export default class FormComponent extends React.Component {
       lastName: '',
       title: '',
       email: '',
-      text: ''
+      text: '',
+      photo: '',
+      likes: 0
     }
   }
 
@@ -23,17 +28,27 @@ export default class FormComponent extends React.Component {
   }
 
   handleChange = (event) => {
+    console.log(event.target)
       return this.setState({
         [event.target.name]: event.target.value
       })
   }
 
+  _openFileDialog = () => {
+    var fileUploadDom = ReactDOM.findDOMNode(this.refs.fileUpload);
+    fileUploadDom.click();
+  }
+
+  handleFileSelection = (event) => {
+    return this.setState({
+      photo: event.target.files[0]
+    })
+  };
+
   render() {
     const validationMessages = {
       requiredText: 'Це поле обовязкове до заповнення.'
     }
-
-    console.log(this.state)
 
     return (
         <form onSubmit={this.submitHandler}>
@@ -77,6 +92,7 @@ export default class FormComponent extends React.Component {
             onChange={this.handleChange}
             value={this.state.title}
           />
+
           <TextField
             hintText=""
             floatingLabelText="Опишіть детальніше вашу проблему"
@@ -87,6 +103,16 @@ export default class FormComponent extends React.Component {
             onChange={this.handleChange}
             value={this.state.text}
           />
+
+          <FlatButton
+            label="Завантажте фото"
+            onClick={this._openFileDialog}/>
+          <input
+            ref="fileUpload"
+            name="photo"
+            type="file"
+            style={{"display" : "none"}}
+            onChange={this.handleFileSelection}/>
 
           <FlatButton
             label="Cancel"

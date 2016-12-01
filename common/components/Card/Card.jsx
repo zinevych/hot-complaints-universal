@@ -1,16 +1,16 @@
 import React from 'react';
 import * as AppActions from '../../actions/appActions'
-import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardTitle, CardText, CardMedia} from 'material-ui/Card';
 import LikeComponent from '../Like/Like.jsx';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 export class CardComponent extends React.Component {
   render() {
-    console.log(this.props);
-
     const {user, title, text} = this.props.item;
-    
+
+    const photoBlock = this.props.item.photo ? <CardMedia><img src={this.props.item.photo} /></CardMedia> : null;
+
     return (
       <Card>
         <CardHeader
@@ -18,6 +18,7 @@ export class CardComponent extends React.Component {
           subtitle={user.email}
           avatar={user.avatar}
         />
+          {photoBlock}
         <CardTitle title={title} />
         <CardText>
           {text}

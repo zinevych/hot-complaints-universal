@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha common/helpers/browser.js common/**/*.spec.js",
     "start": "node server/index.js",
-    "start-dev": "node server/dev-server.js"
+    "start-dev": "node server/dev-server.js",
+    "start-api-dev": "json-server --watch db.json --port 3001"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.4.3",
     "chai": "^3.5.0",
+    "cloudinary": "^1.4.6",
+    "connect-multiparty": "^2.0.0",
     "css-loader": "^0.26.0",
     "enzyme": "^2.6.0",
     "express": "^4.13.3",
@@ -34,6 +37,8 @@
     "jsdom-global": "^2.1.0",
     "material-ui": "latest",
     "mocha": "^3.1.2",
+    "multer": "^1.2.0",
+    "multer-cloudinary": "^1.1.0",
     "node-sass": "^3.13.0",
     "qs": "^4.0.0",
     "react": "^15.4.0",

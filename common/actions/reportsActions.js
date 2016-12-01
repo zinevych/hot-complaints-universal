@@ -1,4 +1,4 @@
-import {get, post, put} from '../helpers/rest'
+import {get, post, put, postWithFile} from '../helpers/rest'
 export const GET_REPORTS = 'GET_REPORTS';
 export const REPORT_POST = 'REPORT_POST';
 export const REPORT_LIKE = 'REPORT_LIKE';
@@ -47,11 +47,12 @@ export const postReport = (payload) => {
         });
       }
     }).then((userObj) => {
-      return post('/api/reports', {
+      return postWithFile('/api/reports', {
         title: payload.title,
         text: payload.text,
-        userId: userObj.id
-      }).then((result) => {
+        userId: userObj.id,
+        likes: payload.likes
+      }, payload.photo).then((result) => {
         dispatch({
           type: REPORT_POST,
           data: result

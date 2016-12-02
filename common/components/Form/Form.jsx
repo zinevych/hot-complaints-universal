@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FileAttachment from 'material-ui/svg-icons/file/attachment';
+import GoogleMap from '../GoogleMap/GoogleMap.jsx';
 
 export default class FormComponent extends React.Component {
   constructor(props) {
@@ -103,6 +104,8 @@ export default class FormComponent extends React.Component {
             onChange={this.handleChange}
             value={this.state.text}
           />
+          
+          <GoogleMap />
 
           <FlatButton
             label="Завантажте фото"

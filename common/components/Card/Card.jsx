@@ -2,14 +2,34 @@ import React from 'react';
 import * as AppActions from '../../actions/appActions'
 import {Card, CardActions, CardHeader, CardTitle, CardText, CardMedia} from 'material-ui/Card';
 import LikeComponent from '../Like/Like.jsx';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import Toggle from 'material-ui/Toggle';
+import GoogleMap from '../GoogleMap/GoogleMapCardContainer.js';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 
 export class CardComponent extends React.Component {
-  render() {
-    const {user, title, text} = this.props.item;
+  constructor() {
+    super();
 
-    const photoBlock = this.props.item.photo ? <CardMedia><img src={this.props.item.photo} /></CardMedia> : null;
+    this.state = {
+      showMap: false
+    }
+  }
+
+  handleToggle = (event, toggle) => {
+    this.setState({showMap: toggle});
+  };
+
+  render() {
+    const {user, title, text, photo} = this.props.item;
+    const photoBlock = photo ? <CardMedia><img src={photo}/></CardMedia> : null;
+    const mapBlock = this.state.showMap ? <CardMedia><GoogleMap {...this.props} /></CardMedia> : null;
+    const mapBlockToggle = this.props.item.marker ? <Toggle
+      toggled={this.state.showMap}
+      onToggle={this.handleToggle}
+      labelPosition="right"
+      label="Показати карту"
+    /> : null;
 
     return (
       <Card>
@@ -18,9 +38,11 @@ export class CardComponent extends React.Component {
           subtitle={user.email}
           avatar={user.avatar}
         />
-          {photoBlock}
-        <CardTitle title={title} />
+        {photoBlock}
+        {mapBlock}
+        <CardTitle title={title}/>
         <CardText>
+          {mapBlockToggle}
           {text}
         </CardText>
         <CardActions>

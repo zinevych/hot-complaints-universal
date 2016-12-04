@@ -1,16 +1,12 @@
 /* global google */
 import _ from "lodash";
+import GoogleMapElement from './GoogleMapElement.jsx';
 
 import React from "react";
 
-import {
-  withGoogleMap,
-  GoogleMap,
-  Marker,
-} from 'react-google-maps';
 import './google-map.scss';
 
-export default class GoogleMapsComponent extends React.Component {
+export default class GoogleMapFormContainer extends React.Component {
 
   constructor() {
     super();
@@ -85,26 +81,9 @@ export default class GoogleMapsComponent extends React.Component {
   }
 
   render() {
-    const GettingStartedGoogleMap = withGoogleMap(props => (
-      <GoogleMap
-        ref={props.onMapLoad}
-        defaultZoom={3}
-        defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
-        onClick={props.onMapClick}
-      >
-        {props.markers.map(marker => (
-          <Marker
-            {...marker}
-            onRightClick={() => props.onMarkerRightClick(marker)}
-          />
-        ))}
-      </GoogleMap>
-    ));
-
-
     return (
       <div className="google-maps__wrapper">
-        <GettingStartedGoogleMap
+        <GoogleMapElement
           containerElement={
             <div className="google-maps__container" />
           }

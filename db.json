@@ -15,43 +15,26 @@
       "id": "2"
     },
     {
-      "likes": 2,
-      "title": "2323",
-      "text": "234234234",
-      "userId": "2",
-      "id": "3"
-    },
-    {
-      "likes": 1,
-      "title": "123123",
-      "text": "123123",
-      "userId": "6",
-      "id": "Skz0T0aMg"
-    },
-    {
-      "likes": 1,
-      "title": "werwqerqw",
-      "text": "rqwerqwer",
-      "userId": "7",
-      "id": "SkE4RC6fe"
-    },
-    {
-      "userId": "9",
-      "text": "12341234",
-      "title": "12341234",
-      "photo": "http://res.cloudinary.com/dj3gpoate/image/upload/v1480865673/ebob8jnomwq9udqisqvo.jpg",
-      "id": "ryf5Dn-7x"
-    },
-    {
-      "userId": "10",
-      "text": "e",
-      "title": "qwe",
+      "userId": "3",
+      "text": "werwer",
+      "title": "werwe",
       "marker": {
-        "lat": "-29.382175075145277",
-        "lng": "122.87109375"
+        "lat": "-33.504759069226075",
+        "lng": "131.2646484375"
       },
-      "photo": "http://res.cloudinary.com/dj3gpoate/image/upload/v1480865779/ce12nmyuyg0qpvftyiyc.jpg",
-      "id": "BJ3lunZml"
+      "photo": "http://res.cloudinary.com/dj3gpoate/image/upload/v1480868703/furyhl3dnt5c83mmw6ox.jpg",
+      "id": "B1wD76ZQg"
+    },
+    {
+      "userId": "4",
+      "text": "qwerqwer",
+      "title": "qweqwe",
+      "marker": {
+        "lat": "-29.22889003019423",
+        "lng": "119.00390625"
+      },
+      "photo": "http://res.cloudinary.com/dj3gpoate/image/upload/v1480869208/mgl1btnoroiqlttuycfd.jpg",
+      "id": "rJWDH6W7e"
     }
   ],
   "users": [
@@ -70,39 +53,18 @@
       "id": 2
     },
     {
-      "firstName": "123",
-      "lastName": "123123",
-      "email": "333111",
-      "avatar": "https://api.adorable.io/avatars/100/abott401@adorable.io.png",
-      "id": 6
+      "firstName": "wewe",
+      "lastName": "qwerqwer",
+      "email": "qwerqwerqw",
+      "avatar": "https://api.adorable.io/avatars/100/abott433@adorable.io.png",
+      "id": 3
     },
     {
-      "firstName": "4444",
-      "lastName": "5555",
-      "email": "345345",
-      "avatar": "https://api.adorable.io/avatars/100/abott762@adorable.io.png",
-      "id": 7
-    },
-    {
-      "firstName": "wqwqwe",
-      "lastName": "qew",
-      "email": "dqwqwd",
-      "avatar": "https://api.adorable.io/avatars/100/abott633@adorable.io.png",
-      "id": 8
-    },
-    {
-      "firstName": "3434",
-      "lastName": "234234",
-      "email": "12341234",
-      "avatar": "https://api.adorable.io/avatars/100/abott506@adorable.io.png",
-      "id": 9
-    },
-    {
-      "firstName": "wewqe",
-      "lastName": "qweqwe",
-      "email": "qweqwe",
-      "avatar": "https://api.adorable.io/avatars/100/abott1018@adorable.io.png",
-      "id": 10
+      "firstName": "rrr",
+      "lastName": "www",
+      "email": "qqq",
+      "avatar": "https://api.adorable.io/avatars/100/abott881@adorable.io.png",
+      "id": 4
     }
   ]
 }

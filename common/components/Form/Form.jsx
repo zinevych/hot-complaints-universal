@@ -9,44 +9,36 @@ import GoogleMap from '../GoogleMap/GoogleMap.jsx';
 export default class FormComponent extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      firstName: '',
-      lastName: '',
-      title: '',
-      email: '',
-      text: '',
-      photo: '',
-      likes: 0
-    }
   }
 
   submitHandler = (e) => {
     e.preventDefault();
-
-    this.props.reportsActions.postReport(this.state);
-    this.props.onSubmit();
-  }
+    const {reportsActions, reports, onSubmit} = this.props;
+    
+    reportsActions.postReport(reports.newReport);
+    onSubmit();
+  };
 
   handleChange = (event) => {
-    console.log(event.target)
-      return this.setState({
-        [event.target.name]: event.target.value
-      })
-  }
+    this.props.reportsActions.changeNewReportField({
+      [event.target.name]: event.target.value
+    });
+  };
 
   _openFileDialog = () => {
     var fileUploadDom = ReactDOM.findDOMNode(this.refs.fileUpload);
     fileUploadDom.click();
-  }
+  };
 
   handleFileSelection = (event) => {
-    return this.setState({
+    this.props.reportsActions.changeNewReportField({
       photo: event.target.files[0]
-    })
+    });
   };
 
   render() {
+    const {firstName, lastName, email, title, text} = this.props.reports.newReport;
+
     const validationMessages = {
       requiredText: 'Це поле обовязкове до заповнення.'
     }
@@ -61,7 +53,7 @@ export default class FormComponent extends React.Component {
             fullWidth={true}
             name="firstName"
             onChange={this.handleChange}
-            value={this.state.firstName}
+            value={firstName}
           />
           <TextField
             hintText="Петренко"
@@ -71,7 +63,7 @@ export default class FormComponent extends React.Component {
             fullWidth={true}
             name="lastName"
             onChange={this.handleChange}
-            value={this.state.lastName}
+            value={lastName}
           />
           <TextField
             hintText="Електронна пошта"
@@ -81,7 +73,7 @@ export default class FormComponent extends React.Component {
             fullWidth={true}
             name="email"
             onChange={this.handleChange}
-            value={this.state.email}
+            value={email}
           />
           <TextField
             hintText=""
@@ -91,7 +83,7 @@ export default class FormComponent extends React.Component {
             fullWidth={true}
             name="title"
             onChange={this.handleChange}
-            value={this.state.title}
+            value={title}
           />
 
           <TextField
@@ -102,10 +94,8 @@ export default class FormComponent extends React.Component {
             fullWidth={true}
             name="text"
             onChange={this.handleChange}
-            value={this.state.text}
+            value={text}
           />
-          
-          <GoogleMap />
 
           <FlatButton
             label="Завантажте фото"

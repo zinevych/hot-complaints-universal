@@ -35,6 +35,7 @@ module.exports = function (app) {
             userId: req.body.userId,
             text: req.body.text,
             title: req.body.title,
+            marker: req.body.marker,
             photo: result.url
           }
         }).on('response', (serverResponse) => {

@@ -16,15 +16,14 @@ export default class GoogleMapsComponent extends React.Component {
     super();
 
     this.state = {
-      markers: [{
-        position: {
-          lat: 25.0112183,
-          lng: 121.52067570000001
-        },
-        key: `Taiwan`,
-        defaultAnimation: 2
-      }]
+      markers: []
     };
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return this.props.reports.newReport.marker && nextProps.reports.newReport.marker &&
+    (this.props.reports.newReport.marker.lat !== nextProps.reports.newReport.marker.lat ||
+    this.props.reports.newReport.marker.lng !== nextProps.reports.newReport.marker.lng)
   }
 
   handleMapLoad = (map) => {
@@ -39,16 +38,23 @@ export default class GoogleMapsComponent extends React.Component {
    * Go and try click now.
    */
   handleMapClick = (event) => {
+    console.log(event.latLng.lat())
     const nextMarkers = [
-      ...this.state.markers,
       {
         position: event.latLng,
         defaultAnimation: 2,
-        key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-      },
+        key: Date.now() // Add a key property for: http://fb.me/react-warning-keys
+      }
     ];
     this.setState({
       markers: nextMarkers,
+    });
+
+    this.props.reportsActions.changeNewReportField({
+      marker: {
+        lat: nextMarkers[0].position.lat(),
+        lng: nextMarkers[0].position.lng()
+      }
     });
 
     if (nextMarkers.length === 3) {
@@ -68,6 +74,13 @@ export default class GoogleMapsComponent extends React.Component {
     const nextMarkers = this.state.markers.filter(marker => marker !== targetMarker);
     this.setState({
       markers: nextMarkers,
+    });
+
+    this.props.reportsActions.changeNewReportField({
+      marker: {
+        lat: nextMarkers.position.lat(),
+        lng: nextMarkers.position.lng()
+      }
     });
   }
 

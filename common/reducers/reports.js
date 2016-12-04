@@ -1,7 +1,17 @@
-import { GET_REPORTS, REPORT_LIKE } from '../actions/reportsActions'
+import { GET_REPORTS, REPORT_LIKE, CHANGE_NEW_REPORT_FIELD } from '../actions/reportsActions'
 
 const initialState = {
-  list: []
+  list: [],
+  newReport: {
+    firstName: '',
+    lastName: '',
+    title: '',
+    email: '',
+    text: '',
+    photo: null,
+    likes: 0,
+    marker: {}
+  }
 };
 
 const app = (state = initialState, action) => {
@@ -28,6 +38,16 @@ const app = (state = initialState, action) => {
         list: tempList
       };
     }
+
+    case CHANGE_NEW_REPORT_FIELD: {      
+      return {
+        ...state,
+        newReport: {
+          ...state.newReport,
+          ...action.data
+        }
+      }
+    }  
 
     default:
       return state

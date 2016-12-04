@@ -2,6 +2,7 @@ import {get, post, put, postWithFile} from '../helpers/rest'
 export const GET_REPORTS = 'GET_REPORTS';
 export const REPORT_POST = 'REPORT_POST';
 export const REPORT_LIKE = 'REPORT_LIKE';
+export const CHANGE_NEW_REPORT_FIELD = 'CHANGE_NEW_REPORT_FIELD';
 
 export const getReports = () => {
   return dispatch => {
@@ -50,6 +51,7 @@ export const postReport = (payload) => {
       return postWithFile('/api/reports', {
         title: payload.title,
         text: payload.text,
+        marker: payload.marker,
         userId: userObj.id,
         likes: payload.likes
       }, payload.photo).then((result) => {
@@ -61,3 +63,8 @@ export const postReport = (payload) => {
     })
   }
 };
+
+export const changeNewReportField = (payload) => ({
+  type: CHANGE_NEW_REPORT_FIELD,
+  data: payload
+});

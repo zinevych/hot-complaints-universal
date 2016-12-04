@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import FormComponent from '../Form/Form.jsx';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import * as AppActions from '../../actions/appActions'
+import GoogleMap from '../GoogleMap/GoogleMap.jsx';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -52,6 +53,7 @@ export class DialogComponent extends React.Component {
       >
         <div className="add-complaint-form__container">
           <FormComponent {...this.props} onSubmit={this.props.appActions.toggleDialog}/>
+          <GoogleMap {...this.props}/>
         </div>
       </Dialog>
     );

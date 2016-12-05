@@ -7,7 +7,7 @@ import GoogleMap from '../GoogleMap/GoogleMapCardContainer.js';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-export class CardComponent extends React.Component {
+export default class CardComponent extends React.Component {
   constructor() {
     super();
 
@@ -16,17 +16,21 @@ export class CardComponent extends React.Component {
     }
   }
 
-  handleToggle = (event, toggle) => {
-    this.setState({showMap: toggle});
+  handleToggle = (event) => {
+    console.log('asasasasas');
+    
+    this.setState({showMap: !this.state.showMap});
   };
 
   render() {
+    console.log(this.state.showMap)
+    
     const {user, title, text, photo} = this.props.item;
     const photoBlock = photo ? <CardMedia><img src={photo}/></CardMedia> : null;
     const mapBlock = this.state.showMap ? <CardMedia><GoogleMap {...this.props} /></CardMedia> : null;
     const mapBlockToggle = this.props.item.marker ? <Toggle
       toggled={this.state.showMap}
-      onToggle={this.handleToggle}
+      onClick={this.handleToggle}
       labelPosition="right"
       label="Показати карту"
     /> : null;
@@ -42,25 +46,13 @@ export class CardComponent extends React.Component {
         {mapBlock}
         <CardTitle title={title}/>
         <CardText>
-          {mapBlockToggle}
           {text}
         </CardText>
         <CardActions>
           <LikeComponent item={this.props.item} {...this.props} />
+          {mapBlockToggle}
         </CardActions>
       </Card>
     )
   }
 }
-
-const mapStateToProps = (state) => ({
-  app: state.app
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    appActions: bindActionCreators(AppActions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardComponent)

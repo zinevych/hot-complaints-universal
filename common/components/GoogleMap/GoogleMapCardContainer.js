@@ -41,6 +41,7 @@ export default class GoogleMapCardContainer extends React.Component {
           mapElement={
             <div className="google-maps__map-element" />
           }
+          defaultCenter = {{ lat: 49, lng: 30.044922 }}
           onMapLoad={this.handleMapLoad}
           onMapClick={this.handleMapClick}
           markers={[this.props.marker]}

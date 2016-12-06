@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 
 import './dialog.scss'
 
-export class DialogComponent extends React.Component {
+export default class DialogComponent extends React.Component {
   submitForm() {
     console.log('asasas')
   }
@@ -41,8 +41,6 @@ export class DialogComponent extends React.Component {
       );
     }
 
-    console.log(this.props.appActions.toggleDialog)
-
     return (
       <Dialog
         title="Додайте свою скаргу"
@@ -59,15 +57,3 @@ export class DialogComponent extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => ({
-  app: state.app
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    appActions: bindActionCreators(AppActions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DialogComponent)

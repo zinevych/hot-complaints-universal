@@ -14,12 +14,26 @@ export default class FormComponent extends React.Component {
   submitHandler = (e) => {
     e.preventDefault();
     const {reportsActions, reports, onSubmit} = this.props;
-    
-    reportsActions.postReport(reports.newReport);
-    onSubmit();
+    const {errors} = this.props.form;
+    let isValidForm = true;
+
+    Object.keys(errors).map((key) => {
+      if (errors[key] && errors[key] !== '') {
+        isValidForm = false;
+      }
+    });
+
+    if(isValidForm) {
+      reportsActions.postReport(reports.newReport);
+      onSubmit();
+    }
   };
 
   handleChange = (event) => {
+    this.props.formActions.validateField({
+      field:event.target.name,
+      value: event.target.value
+    });
     this.props.reportsActions.changeNewReportField({
       [event.target.name]: event.target.value
     });
@@ -38,6 +52,9 @@ export default class FormComponent extends React.Component {
 
   render() {
     const {firstName, lastName, email, title, text} = this.props.reports.newReport;
+    const {errors} = this.props.form;
+
+    console.log(errors);
 
     const validationMessages = {
       requiredText: 'Це поле обовязкове до заповнення.'
@@ -54,6 +71,7 @@ export default class FormComponent extends React.Component {
             name="firstName"
             onChange={this.handleChange}
             value={firstName}
+            errorText={errors.firstName}
           />
           <TextField
             hintText="Петренко"
@@ -64,6 +82,7 @@ export default class FormComponent extends React.Component {
             name="lastName"
             onChange={this.handleChange}
             value={lastName}
+            errorText={errors.lastName}
           />
           <TextField
             hintText="Електронна пошта"
@@ -74,6 +93,7 @@ export default class FormComponent extends React.Component {
             name="email"
             onChange={this.handleChange}
             value={email}
+            errorText={errors.email}
           />
           <TextField
             hintText=""

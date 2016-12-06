@@ -9,6 +9,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from '../../../node_modules/material-ui/svg-icons/content/add';
 import * as AppActions from '../../actions/appActions'
 import * as ReportsActions from '../../actions/reportsActions'
+import * as FormActions from '../../actions/formActions'
 
 import './app.scss';
 
@@ -37,13 +38,15 @@ export class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   app: state.app,
-  reports: state.reports
+  reports: state.reports,
+  form: state.form
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     appActions: bindActionCreators(AppActions, dispatch),
-    reportsActions: bindActionCreators(ReportsActions, dispatch)
+    reportsActions: bindActionCreators(ReportsActions, dispatch),
+    formActions: bindActionCreators(FormActions, dispatch)
   }
 }
 

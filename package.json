@@ -4,6 +4,7 @@
   "description": "An example of a universally-rendered Redux application",
   "scripts": {
     "test": "mocha common/helpers/browser.js common/**/*.spec.js",
+    "acceptance-test": "./node_modules/.bin/wdio webdriver/config/webdriverio.conf.js",
     "start": "node server/index.js",
     "start-dev": "node server/dev-server.js",
     "start-api-dev": "json-server --watch db.json --port 3001"
@@ -59,6 +60,9 @@
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
     "superagent": "^3.0.0",
+    "wdio-mocha-framework": "^0.5.4",
+    "wdio-selenium-standalone-service": "^0.0.7",
+    "webdriverio": "^4.4.0",
     "webpack-dev-server": "^1.16.2"
   },
   "devDependencies": {

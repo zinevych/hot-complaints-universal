@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import counter from './counter'
 import app from './app'
 import reports from './reports'
+import form from './form'
 
 const rootReducer = combineReducers({
-  counter,
   app,
-  reports
-})
+  reports,
+  form
+});
 
 export default rootReducer

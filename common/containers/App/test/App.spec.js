@@ -10,6 +10,10 @@ import DialogComponent from '../../../components/Dialog/Dialog.jsx'
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 const props = {
+  app: {
+    drawerOpen: false,
+    dialogOpen: false
+  },
   appActions: {
     toggleDialog: function () {
     }

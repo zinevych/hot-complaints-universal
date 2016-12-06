@@ -61,7 +61,7 @@ describe('<Card />', () => {
   });
 
   
-  it('calls componentDidMount', () => {
+  it('calls render', () => {
     sinon.spy(Card.prototype, 'render');
     const wrapper = mountWithTheme(<Card {...props} />);
     expect(Card.prototype.render.calledOnce).to.equal(true);

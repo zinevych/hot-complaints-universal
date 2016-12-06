@@ -60,8 +60,10 @@
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
     "superagent": "^3.0.0",
+    "wdio-junit-reporter": "^0.2.0",
     "wdio-mocha-framework": "^0.5.4",
     "wdio-selenium-standalone-service": "^0.0.7",
+    "wdio-spec-reporter": "^0.0.3",
     "webdriverio": "^4.4.0",
     "webpack-dev-server": "^1.16.2"
   },

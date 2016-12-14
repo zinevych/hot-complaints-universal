@@ -10,7 +10,7 @@ export class AppBarComponent extends React.Component {
   render() {
     return (
       <AppBar
-        title="Title"
+        title=""
         iconClassNameRight="muidocs-icon-navigation-expand-more"
       />
     )

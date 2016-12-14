@@ -81,6 +81,9 @@ export default class GoogleMapFormContainer extends React.Component {
   }
 
   render() {
+    console.log(this.state.markers);
+
+
     return (
       <div className="google-maps__wrapper">
         <GoogleMapElement

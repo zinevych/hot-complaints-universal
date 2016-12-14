@@ -42,6 +42,19 @@ module.exports = function (app) {
           res.send(serverResponse)
         })
       });
+    } else {
+      request.post({
+        url: urls.reports,
+        json: {
+          userId: req.body.userId,
+          text: req.body.text,
+          title: req.body.title,
+          marker: req.body.marker,
+          photo: ''
+        }
+      }).on('response', (serverResponse) => {
+        res.send(serverResponse)
+      })
     }
   });
 

@@ -24,14 +24,16 @@ export default class GoogleMapCardContainer extends React.Component {
    * Go and try click now.
    */
   handleMapClick = (event) => {
-    
+
   }
 
   handleMarkerRightClick = (targetMarker) => {
-    
+
   }
 
   render() {
+    console.log(this.props.item.marker);
+
     return (
       <div className="google-maps__wrapper">
         <GoogleMapElement
@@ -41,10 +43,16 @@ export default class GoogleMapCardContainer extends React.Component {
           mapElement={
             <div className="google-maps__map-element" />
           }
-          defaultCenter = {{ lat: 49, lng: 30.044922 }}
+          defaultCenter={{ lat: 49, lng: 30.044922 }}
           onMapLoad={this.handleMapLoad}
           onMapClick={this.handleMapClick}
-          markers={[this.props.marker]}
+          markers={[{
+            position: {
+              lat: +(this.props.item.marker.lat),
+              lng: +(this.props.item.marker.lng)
+            }           
+          }
+          ]}
           onMarkerRightClick={this.handleMarkerRightClick}
         />
       </div>

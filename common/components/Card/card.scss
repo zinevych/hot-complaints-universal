@@ -1,0 +1,10 @@
+.card-actions {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__map {
+    margin-left: auto;
+  }
+}

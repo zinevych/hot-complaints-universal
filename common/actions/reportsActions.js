@@ -21,6 +21,8 @@ export const like = (payload) => {
       likes: (payload.likes || 0) + 1,
       title: payload.title,
       text: payload.text,
+      marker: payload.marker,
+      photo: payload.photo,
       userId: payload.userId
     }).then((result) => {
       dispatch({

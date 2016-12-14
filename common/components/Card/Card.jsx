@@ -4,6 +4,7 @@ import {Card, CardActions, CardHeader, CardTitle, CardText, CardMedia} from 'mat
 import LikeComponent from '../Like/Like.jsx';
 import Toggle from 'material-ui/Toggle';
 import GoogleMap from '../GoogleMap/GoogleMapCardContainer.js';
+import './card.scss'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
@@ -49,8 +50,14 @@ export default class CardComponent extends React.Component {
           {text}
         </CardText>
         <CardActions>
-          <LikeComponent item={this.props.item} {...this.props} />
-          {mapBlockToggle}
+          <div className="card-actions__container">
+            <div className="card-actions__like">
+              <LikeComponent item={this.props.item} {...this.props} />
+            </div>
+            <div className="card-actions__map">
+              {mapBlockToggle}
+            </div>
+          </div>
         </CardActions>
       </Card>
     )

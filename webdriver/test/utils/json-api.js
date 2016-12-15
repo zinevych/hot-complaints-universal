@@ -37,10 +37,19 @@ module.exports = function() {
         })
     });
   }
-  
-  
+
+  function deleteReport() {
+
+  }
+
+  function deleteUser() {
+    
+  }
+
   return {
     postReport: postReport,
-    postUser: postUser
+    postUser: postUser,
+    deleteReport: deleteReport,
+    deleteUser: deleteUser,
   }
-}
+};

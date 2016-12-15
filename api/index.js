@@ -38,9 +38,7 @@ module.exports = function (app) {
             marker: req.body.marker,
             photo: result.url
           }
-        }).on('response', (serverResponse) => {
-          res.send(serverResponse)
-        })
+        }).pipe(res);
       });
     } else {
       request.post({
@@ -52,9 +50,7 @@ module.exports = function (app) {
           marker: req.body.marker,
           photo: ''
         }
-      }).on('response', (serverResponse) => {
-        res.send(serverResponse)
-      })
+      }).pipe(res);
     }
   });
 

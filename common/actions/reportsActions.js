@@ -35,6 +35,7 @@ export const like = (payload) => {
 
 export const postReport = (payload) => {
   return dispatch => {
+    let results = {};
     get(`/api/users?email=${payload.email}`).then((result) => {
       if (result.length > 0) {
         return result[0];
@@ -50,6 +51,7 @@ export const postReport = (payload) => {
         });
       }
     }).then((userObj) => {
+      results.user = userObj;
       return postWithFile('/api/reports', {
         title: payload.title,
         text: payload.text,
@@ -57,9 +59,10 @@ export const postReport = (payload) => {
         userId: userObj.id,
         likes: payload.likes
       }, payload.photo).then((result) => {
+        results.report = result;
         dispatch({
           type: REPORT_POST,
-          data: result
+          data: results
         });
       })
     })

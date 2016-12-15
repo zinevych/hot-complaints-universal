@@ -1,4 +1,4 @@
-import { GET_REPORTS, REPORT_LIKE, CHANGE_NEW_REPORT_FIELD } from '../actions/reportsActions'
+import { GET_REPORTS, REPORT_LIKE, CHANGE_NEW_REPORT_FIELD, REPORT_POST } from '../actions/reportsActions'
 
 const initialState = {
   list: [],
@@ -23,6 +23,19 @@ const app = (state = initialState, action) => {
         ...state,
         list: action.data
       };
+
+    case REPORT_POST: {
+      let newReport = action.data.report;
+      newReport.user = action.data.user;
+
+      let tempList = state.list;
+      tempList.push(newReport);
+
+      return {
+        ...state,
+        list: tempList
+      };
+    }
 
     case REPORT_LIKE: {
       let tempList = state.list.map((element) => {

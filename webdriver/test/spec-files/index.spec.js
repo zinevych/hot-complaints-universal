@@ -30,4 +30,11 @@ describe('index page with feed', function() {
       expect(page.addNewButtonVisible()).to.be.true;
     });
   });
+
+  after(function() {
+    return Promise.all([
+      api().deleteReport(),
+      api().deleteUser()
+    ]);
+  })
 });

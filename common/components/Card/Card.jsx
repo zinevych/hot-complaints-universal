@@ -29,7 +29,7 @@ export default class CardComponent extends React.Component {
     const {user, title, text, photo} = this.props.item;
     const photoBlock = photo ? <CardMedia><img src={photo}/></CardMedia> : null;
     const mapBlock = this.state.showMap ? <CardMedia><GoogleMap {...this.props} /></CardMedia> : null;
-    const mapBlockToggle = this.props.item.marker ? <Toggle
+    const mapBlockToggle = this.props.item.marker && (this.props.item.marker.lat !== '' && this.props.item.marker.lng !== '') ? <Toggle
       toggled={this.state.showMap}
       onClick={this.handleToggle}
       labelPosition="right"

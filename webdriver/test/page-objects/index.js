@@ -2,16 +2,21 @@ export default class Index {
   constructor() {
     this.obj = {
       app: 'app',
-      feed_container: '.hot-problems__main-container',
-      floating_button: '.floating-button'
+      feedContainer: '.hot-problems__main-container',
+      floatingButton: '.floating-button',
+      floatingButtonElement: '.floating-button > button'
     }
   }
   
   feedVisible() {
-    return browser.isVisible(this.obj.feed_container);
+    return browser.isVisible(this.obj.feedContainer);
   }
 
   addNewButtonVisible() {
-    return browser.isVisible(this.obj.floating_button)
+    return browser.isVisible(this.obj.floatingButton)
+  }
+
+  floatingButtonClick() {
+    return browser.click(this.obj.floatingButtonElement);
   }
 }

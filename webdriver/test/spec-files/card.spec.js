@@ -46,7 +46,7 @@ describe('card tests', function() {
       expect(card.firstCardLikeBadgeContent()).to.be.eql('');
       
       card.clickLikeButton();
-
+      browser.pause(10000);
       browser.waitUntil(function () {
         return card.firstCardLikeBadgeContent() === '1'
       }, 5000, 'expected badge content to be different after 5s');

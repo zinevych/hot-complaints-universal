@@ -4,7 +4,7 @@ const initialState = {
   errors: {}
 };
 
-const app = (state = initialState, action) => {
+const form = (state = initialState, action) => {
   switch (action.type) {
     case VALIDATE_FIELD:      
       return {
@@ -20,4 +20,4 @@ const app = (state = initialState, action) => {
   }
 };
 
-export default app
+export default form

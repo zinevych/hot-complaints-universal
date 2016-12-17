@@ -39,7 +39,8 @@ describe('<Card />', () => {
       maps: {
         Marker: function() {
           return {
-            setMap: sinon.stub()
+            setMap: sinon.stub(),
+            setPosition: sinon.stub(),
           }
         },
         Map: function() {

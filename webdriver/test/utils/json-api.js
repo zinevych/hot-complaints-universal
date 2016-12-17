@@ -38,14 +38,14 @@ module.exports = function() {
     });
   }
 
-  function deleteReport() {
-    return fetch('http://localhost:3001/users/33333333', {
+  function deleteReport(id) {
+    return fetch(`http://localhost:3001/users/${id || 33333333}`, {
       method: 'DELETE'
     });
   }
 
-  function deleteUser() {
-    return fetch('http://localhost:3001/reports/11111111', {
+  function deleteUser(id) {
+    return fetch(`http://localhost:3001/reports/${id || 11111111}`, {
       method: 'DELETE'
     });
   }

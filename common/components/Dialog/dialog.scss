@@ -1,13 +1,14 @@
 .add-complaint-form {
   &__container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
     form {
       width: 300px;
     }
     .google-maps__wrapper {
-      width: 300px;
+      width: 400px;
+      height: 400px;
     }
   }
 }

@@ -11,25 +11,7 @@ import { connect } from 'react-redux'
 import './dialog.scss'
 
 export default class DialogComponent extends React.Component {
-  submitForm() {
-    console.log('asasas')
-  }
-
   render() {
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onClick={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        keyboardFocused={true}
-        onClick={this.handleClose}
-      />
-    ];
-
     const radios = [];
     for (let i = 0; i < 30; i++) {
       radios.push(

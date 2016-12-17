@@ -12,6 +12,9 @@ let props = {
   app: {
     dialogOpen: true
   },
+  form: {
+    errors: {}
+  },
   reports: {
     newReport: {
       firstName: '',

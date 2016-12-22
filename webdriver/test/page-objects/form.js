@@ -8,8 +8,8 @@ export default class Form {
       emailInput: '.add-complaint-form__container form > div:nth-child(3) input',
       reportTitleInput: '.add-complaint-form__container form > div:nth-child(4) input',
       reportTextInput: '.add-complaint-form__container form > div:nth-child(5) > div > textarea:nth-child(2)',
-      photoInput: '.add-complaint-form__container form > input[type="file"]',
-      submitButton: '.add-complaint-form__container form button[type="submit"]'
+      photoInput: '.add-complaint-form__container form > div:nth-child(6) > div:nth-child(1) > input[type="file"]',
+      submitButton: '.add-complaint-form__container form > div:nth-child(6) > div:nth-child(2) > button[type="submit"]'
     }
   }
 

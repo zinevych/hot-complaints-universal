@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import FileAttachment from 'material-ui/svg-icons/file/attachment';
-import GoogleMap from '../GoogleMap/GoogleMapFormContainer.jsx';
+import './form.scss'
+
 
 export default class FormComponent extends React.Component {
   constructor(props) {
@@ -117,26 +116,31 @@ export default class FormComponent extends React.Component {
             value={text}
           />
 
-          <FlatButton
-            label="Завантажте фото"
-            onClick={this._openFileDialog}/>
-          <input
-            ref="fileUpload"
-            name="photo"
-            type="file"
-            style={{"display" : "none"}}
-            onChange={this.handleFileSelection}/>
-
-          <FlatButton
-            label="Cancel"
-            primary={true}
-            onTouchTap={this.props.onSubmit}
-          />
-          <FlatButton
-            label="Submit"
-            type="submit"
-            primary={true}
-          />
+          <div className="form-buttons">
+            <div className="form-buttons__file">
+              <FlatButton
+                label="Завантажте фото"
+                onClick={this._openFileDialog}/>
+              <input
+                ref="fileUpload"
+                name="photo"
+                type="file"
+                style={{"display" : "none"}}
+                onChange={this.handleFileSelection}/>
+            </div>
+            <div className="form-buttons__controls">
+              <FlatButton
+                label="Cancel"
+                primary={true}
+                onTouchTap={this.props.onSubmit}
+              />
+              <FlatButton
+                label="Submit"
+                type="submit"
+                primary={true}
+              />
+            </div>
+          </div>
         </form>
     )
   }

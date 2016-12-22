@@ -38,7 +38,7 @@ describe('form tests', function() {
       
       expect(card.firstCardUserName()).to.eql('Олександр Зіневич');
     })
-  })
+  });
   
   after(function() {
     return Promise.all([

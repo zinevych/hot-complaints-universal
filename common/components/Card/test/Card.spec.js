@@ -79,9 +79,14 @@ describe('<Card />', () => {
   
   it('should render correct header', () => {
     const wrapper = shallow(<Card {...props} />);
-    expect(wrapper.find(CardHeader).first().props().title).to.eql(`${props.item.user.firstName} ${props.item.user.lastName}`);
-    expect(wrapper.find(CardHeader).first().props().subtitle).to.eql(props.item.user.email);
-    expect(wrapper.find(CardHeader).first().props().avatar).to.eql(props.item.user.avatar);
+    expect(wrapper.find(CardHeader).first().props().title)
+      .to.eql(`${props.item.user.firstName} ${props.item.user.lastName}`);
+
+    expect(wrapper.find(CardHeader).first().props().subtitle)
+      .to.eql(props.item.user.email);
+
+    expect(wrapper.find(CardHeader).first().props().avatar)
+      .to.eql(props.item.user.avatar);
   });
   
   it('should render correct card title', () => {
@@ -109,7 +114,9 @@ describe('<Card />', () => {
       lng: 1
     };
     let wrapper = mountWithTheme(<Card {...props} />);
-    const mapToggle = wrapper.find(Toggle).first().find('input[type="checkbox"]').first();
+    const mapToggle = wrapper.find(Toggle).first()
+      .find('input[type="checkbox"]').first();
+    
     mapToggle.simulate('click');
     wrapper.update();    
     expect(wrapper.find(GoogleMap).length).to.eql(1);

@@ -30,8 +30,6 @@ export class App extends React.Component {
       <FloatingActionButton className="floating-button" onClick={this.props.appActions.toggleDialog}>
         <ContentAdd />
       </FloatingActionButton>
-      
-      
     </div>)
   }
 }

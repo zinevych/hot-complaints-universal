@@ -18,23 +18,24 @@ export default class CardComponent extends React.Component {
   }
 
   handleToggle = (event) => {
-    console.log('asasasasas');
-    
     this.setState({showMap: !this.state.showMap});
   };
 
   render() {
-    console.log(this.state.showMap)
-    
     const {user, title, text, photo} = this.props.item;
     const photoBlock = photo ? <CardMedia><img src={photo}/></CardMedia> : null;
-    const mapBlock = this.state.showMap ? <CardMedia><GoogleMap {...this.props} /></CardMedia> : null;
-    const mapBlockToggle = this.props.item.marker && (this.props.item.marker.lat !== '' && this.props.item.marker.lng !== '') ? <Toggle
-      toggled={this.state.showMap}
-      onClick={this.handleToggle}
-      labelPosition="right"
-      label="Показати карту"
-    /> : null;
+    const mapBlock = this.state.showMap ?
+      <CardMedia>
+        <GoogleMap {...this.props} />
+      </CardMedia> : null;
+    const mapBlockToggle = this.props.item.marker &&
+    (this.props.item.marker.lat !== '' && this.props.item.marker.lng !== '') ?
+      <Toggle
+        toggled={this.state.showMap}
+        onClick={this.handleToggle}
+        labelPosition="right"
+        label="Показати карту"
+      /> : null;
 
     return (
       <Card>

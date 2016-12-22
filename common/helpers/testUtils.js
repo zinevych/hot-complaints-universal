@@ -4,27 +4,27 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {green100, green500, green700} from 'material-ui/styles/colors';
 import { mount, shallow, render } from 'enzyme';
 
-export function mountWithTheme(node, options) {
+    export function mountWithTheme(node, options) {
 
-  const muiTheme = getMuiTheme({
-    palette: {
-      primary1Color: green500,
-      primary2Color: green700,
-      primary3Color: green100
+      const muiTheme = getMuiTheme({
+        palette: {
+          primary1Color: green500,
+          primary2Color: green700,
+          primary3Color: green100
+        }
+      }, {
+        avatar: {
+          borderColor: null
+        },
+        userAgent: navigator.userAgent
+      });
+      return mount(
+        <MuiThemeProvider muiTheme={muiTheme}>
+          {node}
+        </MuiThemeProvider>,
+        options
+      )
     }
-  }, {
-    avatar: {
-      borderColor: null
-    },
-    userAgent: navigator.userAgent
-  });
-  return mount(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      {node}
-    </MuiThemeProvider>,
-    options
-  )
-}
 
 export function renderWithTheme(node, options) {
 

@@ -6,7 +6,6 @@
     "test": "mocha common/helpers/browser.js common/**/*.spec.js",
     "acceptance-test": "./node_modules/.bin/wdio webdriver/config/webdriverio.conf.js",
     "start": "node server/index.js",
-    "start-dev": "node server/dev-server.js",
     "start-api-dev": "json-server --watch db.json --port 3001",
     "start-api-test": "json-server --watch db-tests.json --port 3001"
   },

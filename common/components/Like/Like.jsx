@@ -11,10 +11,7 @@ export default class LikeComponent extends React.Component {
   render() {
     return (
       <div className="like-component__container">
-        <Badge
-          badgeContent={this.props.item.likes}
-          primary={true}
-        >
+        <Badge badgeContent={this.props.item.likes} primary={true}>
           <SocialPlusOne onClick={this.addLike} />
         </Badge>
       </div>

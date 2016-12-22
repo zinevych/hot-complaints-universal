@@ -15,11 +15,11 @@ describe('index page with feed', function() {
   describe('basic functionality', function() {
     before(function() {
       browser.url('/');
-    })
+    });
     
     it('set correct page title', function() {
       var title = browser.getTitle();
-      expect(title).to.eql('Redux Universal Example');
+      expect(title).to.eql('Reporting Example');
     });
 
     it('render feed', function() {

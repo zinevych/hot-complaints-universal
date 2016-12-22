@@ -18,8 +18,6 @@ exports.config = {
   mochaOpts: {
     compilers: ['js:babel-register'],
     retries: 2,
-
-    // change to greater value like '24 * 60 * 60 * 1000' if you want to use browser.debug();
     timeout: 2 * 60 * 1000,
     ui: 'bdd'
   },
@@ -27,4 +25,9 @@ exports.config = {
     var chai = require('chai');
     global.expect = chai.expect;
   }
-}
+};
+
+
+
+
+
